@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col">
+        <form action="/compare" enctype="multipart/form-data" method="post">
+
+            <!-- Imput files-->
+            <div class="form-group">
+              <label class="custom-file-label">Choose first file to compare</label>
+              <input name="file1" type="file" class="form-control-file">
+            </div>
+
+            <div class="form-group">
+              <label class="custom-file-label">Choose second file to compare</label>
+              <input name="file2" type="file" class="form-control-file">
+            </div>
+
+            <!-- Radio buttons-->
+            <fieldset class="form-group">
+                <div class="row">
+                  <label class="col-form-label col-sm-2 pt-0">Which comparison algorithm do you prefer?</label>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="algorithm" id="gridRadios1" value="lines" checked>
+                      <label class="form-check-label" for="gridRadios1">
+                        Lines
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="algorithm" id="gridRadios2" value="sentences">
+                      <label class="form-check-label" for="gridRadios2">
+                        Sentences
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="algorithm" id="gridRadios3" value="substrings" >
+                      <label class="form-check-label" for="gridRadios3">
+                        Substrings
+                      </label>
+                      <input type="number" name="length" class="form-control" id="exampleFormControlInput1" placeholder="Substring length">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}

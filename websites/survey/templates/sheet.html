@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">Email</th>
+              <th scope="col">Indirizzo</th>
+              <th scope="col">Città</th>
+              <th scope="col">Regione</th>
+              <th scope="col">CAP</th>
+            </tr>
+        </thead>
+        {% for row in peopleData: %}
+            <tbody>
+                <tr>
+                  <th scope="row">{{ row[0] }}</th>
+                  <td>{{ row[1] }}</td>
+                  <td>{{ row[2] }}</td>
+                  <td>{{ row[3] }}</td>
+                  <td>{{ row[4] }}</td>
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+{% endblock %}

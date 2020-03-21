@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">Stock name</th>
+              <th scope="col">Number of shares involved</th>
+              <th scope="col">Stock price at transaction time</th>
+              <th scope="col">Date and time</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for purchase in userPurchasesList: %}
+            {% if purchase[1] > 0 %}
+            <tr class="table-success">
+            {% else %}
+            <tr class="table-warning">
+            {% endif %}
+              <td>{{ purchase[0] }}</td>
+              <td>{{ purchase[1] }}</td>
+              <td>{{ purchase[2] }}</td>
+              <td>{{ purchase[3] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

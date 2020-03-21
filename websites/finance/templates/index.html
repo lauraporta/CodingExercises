@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">Stock name</th>
+              <th scope="col">Number of shares own</th>
+              <th scope="col">Max stock price</th>
+              <th scope="col">Total spent</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for purchase in userPurchasesList: %}
+            <tr>
+              <td>{{ purchase[0] }}</td>
+              <td>{{ purchase[1] }}</td>
+              <td>{{ purchase[2] }}</td>
+              <td>{{ purchase[3] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr class="table-primary">
+                <td>Current Cash</td>
+                <td> </td>
+                <td> </td>
+                <td>{{currentCash}}</td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>{{groundTotal}}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}
